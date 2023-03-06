@@ -1,5 +1,13 @@
-<form asp-action="PTB2">
-    <label for="">Nhap vao so nguyen a:</label>
- 
+<form class="w3-container" asp-action="PTB2">
+    <label class="w3-text-blue">Nhap he so A:</label>
+    <input style="text" name="heSoA">
+    <br> 
+    <label>Nhap he so B:</label>
+    <input type="text" name="heSoB"> 
+    <br> 
+    <label>Nhap he so C:</label>
+    <input type="text" name="heSoC"> 
+    <br> 
+    <input type="submit" value = "Giai phuong trinh">
 </form>
-<h1>@ViewBag.Sum</h1>
+<h3>@ViewBag.message</h3>

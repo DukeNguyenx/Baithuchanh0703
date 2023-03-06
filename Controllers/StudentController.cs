@@ -39,10 +39,33 @@ namespace BTH2002.Controllers;
         return View();
       }
     [HttpPost]
-      public IActionResult PTB2(string hesoA ,string hesoB, string hesoC)
+      public IActionResult PTB2(string heSoA ,string heSoB, string heSoC)
       {
-        double delta;
-        
+      
+        double delta, x1, x2, a = 0, b = 0, c = 0;
+        string ketqua;
+  
+        if(!String.IsNullOrEmpty(heSoA)) a = Convert.ToDouble(heSoA);
+        if(!String.IsNullOrEmpty(heSoB)) b = Convert.ToDouble(heSoB);
+        if(!String.IsNullOrEmpty(heSoC)) c = Convert.ToDouble(heSoC);
+        if(a==0) ketqua = "Khong phai phuong trinh bac 2";
+        else
+        {
+          delta = Math.Pow(b,2) - 4 * a * c;
+          if(delta<0) ketqua = "Phuong trinh vo nghiem";
+          else if(delta == 0)
+          {
+            x1 = -b/(2*a);
+            ketqua = "Phuong trinh co nghiem kep = " + x1;
+          }
+          else
+          {
+            x1 = (-b + Math.Sqrt(delta))/(2*a);
+            x2 = (-b - Math.Sqrt(delta))/(2*a);
+            ketqua = "Phuong trinh bac 2 co 2 nghiem phan biet: x1 = " + x1 + ", x2 = " + x2;
+          }
+        }
+        ViewBag.message = ketqua;
         return View();
       }
 }  
